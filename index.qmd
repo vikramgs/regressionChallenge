@@ -9,9 +9,9 @@ execute:
   eval: true
 ---
 
-# 🗑️ Regression Challenge - Linear Model Interpretability
+<!-- # 🗑️ Regression Challenge - Linear Model Interpretability -->
 
-**Introduction**
+## **Introduction - to the problem**
 
 This challenge investigates how linear regression can give misleading coefficients when its core assumption of linearity is violated. We begin with a setting where the true data‑generating process for anxiety is:
 

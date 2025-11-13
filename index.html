@@ -136,9 +136,9 @@ window.Quarto = {
 </header>
 
 
-<section id="regression-challenge---linear-model-interpretability" class="level1">
-<h1>🗑️ Regression Challenge - Linear Model Interpretability</h1>
-<p><strong>Introduction</strong></p>
+<!-- # 🗑️ Regression Challenge - Linear Model Interpretability -->
+<section id="introduction---to-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="introduction---to-the-problem"><strong>Introduction - to the problem</strong></h2>
 <p>This challenge investigates how linear regression can give misleading coefficients when its core assumption of linearity is violated. We begin with a setting where the true data‑generating process for anxiety is:</p>
 <p><span class="math display">\[
 \text{Anxiety} = \beta_0 + \beta_1 \cdot \text{Stress} + \beta_2 \cdot \text{Time} + \varepsilon
@@ -164,6 +164,7 @@ window.Quarto = {
 \]</span></p>
 <p>the model becomes mis‑specified. As a result, the estimated coefficients may become biased, distorted in magnitude, or even flip signs—even when the regression reports a high (R^2) and statistically significant p‑values.</p>
 <p>This challenge demonstrates how such failures occur and why linear regression can be dangerously misleading when relationships are non‑linear or when control variables are measured imperfectly.</p>
+</section>
 <section id="visual-overview-of-the-true-vs-observed-system" class="level2">
 <h2 class="anchored" data-anchor-id="visual-overview-of-the-true-vs-observed-system">Visual Overview of the True vs Observed System</h2>
 <div class="columns">
@@ -335,7 +336,7 @@ $$
 Table&nbsp;1: Observed data with known true relationships
 </figcaption>
 <div aria-describedby="tbl-observations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="100">
 <div>
 
 
@@ -595,7 +596,7 @@ Figure&nbsp;1: StressSurvey as a proxy for actual Stress levels
 <h2 class="anchored" data-anchor-id="question-1.-bivariate-regression-analysis-with-stresssurvey"><strong>Question 1.</strong> <strong>Bivariate Regression Analysis with StressSurvey:</strong></h2>
 <p>Run a bivariate regression of Anxiety on StressSurvey. What are the estimated coefficients? How do they compare to the true relationship?</p>
 <p><strong>Answer:</strong></p>
-<div id="f1ce999c" class="cell" data-execution_count="4">
+<div id="94758461" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>Bivariate Regression: Anxiety ~ StressSurvey
 ==================================================
@@ -605,7 +606,7 @@ Dep. Variable:                Anxiety   R-squared:                       0.901
 Model:                            OLS   Adj. R-squared:                  0.893
 Method:                 Least Squares   F-statistic:                     118.4
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):           6.68e-08
-Time:                        21:51:01   Log-Likelihood:                -27.079
+Time:                        21:55:29   Log-Likelihood:                -27.079
 No. Observations:                  15   AIC:                             58.16
 Df Residuals:                      13   BIC:                             59.57
 Df Model:                           1                                         
@@ -670,7 +671,7 @@ Figure&nbsp;2: Bivariate relationship between StressSurvey and Anxiety with regr
 <h2 class="anchored" data-anchor-id="question-3.-bivariate-regression-analysis-with-time"><strong>Question 3. Bivariate Regression Analysis with Time:</strong></h2>
 <p>Run a bivariate regression of Anxiety on Time. What are the estimated coefficients? How do they compare to the true relationship?</p>
 <p><strong>Answer:</strong></p>
-<div id="c5e03f7e" class="cell" data-execution_count="6">
+<div id="a83a93a3" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>Bivariate Regression: Anxiety ~ Time
 ==================================================
@@ -680,7 +681,7 @@ Dep. Variable:                Anxiety   R-squared:                       0.563
 Model:                            OLS   Adj. R-squared:                  0.529
 Method:                 Least Squares   F-statistic:                     16.75
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):            0.00127
-Time:                        21:51:01   Log-Likelihood:                -38.223
+Time:                        21:55:29   Log-Likelihood:                -38.223
 No. Observations:                  15   AIC:                             80.45
 Df Residuals:                      13   BIC:                             81.86
 Df Model:                           1                                         
@@ -748,7 +749,7 @@ Figure&nbsp;3: Bivariate relationship between Time and Anxiety with regression l
 <h2 class="anchored" data-anchor-id="question-5.-multiple-regression-analysis"><strong>Question 5. Multiple Regression Analysis:</strong></h2>
 <p>Run a multiple regression of Anxiety on both <strong>StressSurvey</strong> and Time. What are the estimated coefficients? How do they compare to the true relationship?</p>
 <p><strong>Answer:</strong></p>
-<div id="11b79437" class="cell" data-execution_count="8">
+<div id="d5edc34a" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
 <pre><code>Multiple Regression: Anxiety ~ StressSurvey + Time
 ============================================================
@@ -758,7 +759,7 @@ Dep. Variable:                Anxiety   R-squared:                       0.935
 Model:                            OLS   Adj. R-squared:                  0.924
 Method:                 Least Squares   F-statistic:                     86.32
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):           7.54e-08
-Time:                        21:51:01   Log-Likelihood:                -23.931
+Time:                        21:55:29   Log-Likelihood:                -23.931
 No. Observations:                  15   AIC:                             53.86
 Df Residuals:                      12   BIC:                             55.99
 Df Model:                           2                                         
@@ -838,7 +839,7 @@ When analyzing your multiple regression results, compare them to the **true rela
 <h2 class="anchored" data-anchor-id="question-6.-multiple-regression-analysis"><strong>Question 6. Multiple Regression Analysis:</strong></h2>
 <p>Run a multiple regression of Anxiety on both <strong>Stress</strong> and Time. What are the estimated coefficients? How do they compare to the true relationship?</p>
 <p><strong>Answer:</strong></p>
-<div id="7f306892" class="cell" data-execution_count="9">
+<div id="01b65ced" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
 <pre><code>Multiple Regression: Anxiety ~ Stress + Time
 ============================================================
@@ -848,7 +849,7 @@ Dep. Variable:                Anxiety   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                  1.000
 Method:                 Least Squares   F-statistic:                 1.511e+31
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):          3.92e-183
-Time:                        21:51:01   Log-Likelihood:                 480.58
+Time:                        21:55:29   Log-Likelihood:                 480.58
 No. Observations:                  15   AIC:                            -955.2
 Df Residuals:                      12   BIC:                            -953.0
 Df Model:                           2                                         
@@ -907,7 +908,7 @@ Estimated vs True:
 <h2 class="anchored" data-anchor-id="question-7.-model-comparison"><strong>Question 7. Model Comparison:</strong></h2>
 <p>Compare the R-squared values and coefficient interpretations between the two multiple regression models. Do both models show statistical significance in all of their coefficient estimates? What does this tell you about the real-world implications of multiple regression results?</p>
 <p><strong>Answer:</strong></p>
-<div id="6894d606" class="cell" data-execution_count="10">
+<div id="693e0a88" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>MODEL COMPARISON
 ================================================================================
@@ -1030,7 +1031,7 @@ KEY FINDINGS:
 <p>Reflect on this tip to avoid being misled by statistically significant results: splitting the sample into meaningful subsets (“statistical regimes”), and using graphical diagnostics for linearity rather than blind reliance on “canned” regressions. Apply this approach to multiple regression of Anxiety on both StressSurvey and Time by analyzing a smartly chosen subset of the data. What specific subset did you choose and why? Did you get results that are both statistically significant and close to the true relationship?</p>
 <p><strong>Answer:</strong></p>
 <p>The key insight is to identify “statistical regimes” where the relationship might be more linear. Looking at the data, I notice that the non-linearity in the StressSurvey-Stress relationship is most pronounced at the extremes. Let me examine the relationship more carefully and choose a subset where StressSurvey and Stress have a more linear relationship.</p>
-<div id="51ecc67d" class="cell" data-execution_count="11">
+<div id="f354d032" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1057,7 +1058,7 @@ Subset size: 9 observations (out of 15 total)</code></pre>
 <li><p><strong>Meaningful Regime:</strong> This represents a “low-to-moderate stress” regime where the proxy variable maintains a linear relationship with the true variable.</p></li>
 </ol>
 <p>Now let’s run the multiple regression on this subset:</p>
-<div id="e41b7854" class="cell" data-execution_count="12">
+<div id="c34e6222" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
 <pre><code>Multiple Regression on Subset: Anxiety ~ StressSurvey + Time
 (Subset: Stress ≤ 2)
@@ -1068,7 +1069,7 @@ Dep. Variable:                Anxiety   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                  1.000
 Method:                 Least Squares   F-statistic:                 4.892e+30
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):           2.31e-91
-Time:                        21:51:01   Log-Likelihood:                 301.52
+Time:                        21:55:29   Log-Likelihood:                 301.52
 No. Observations:                   9   AIC:                            -597.0
 Df Residuals:                       6   BIC:                            -596.4
 Df Model:                           2                                         
@@ -1501,7 +1502,6 @@ The key is to always ask:
 8. **Use graphical diagnostics:** Don't rely blindly on "canned" regressions—visualize the relationships to understand what's really happening
 
 Remember: **Correlation is not causation, and regression coefficients can lie!** 📊 -->
-</section>
 </section>
 </section>
 
