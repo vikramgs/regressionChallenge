@@ -11,7 +11,8 @@ execute:
 
 <!-- # 🗑️ Regression Challenge - Linear Model Interpretability -->
 
-## **Introduction - to the problem**
+<!-- ## Introduction - to the challenge -->
+## <span style="color:brown; font-style:italic;">Introduction – to the challenge</span>
 
 This challenge investigates how linear regression can give misleading coefficients when its core assumption of linearity is violated. We begin with a setting where the true data‑generating process for anxiety is:
 
@@ -52,7 +53,7 @@ the model becomes mis‑specified. As a result, the estimated coefficients may b
 
 This challenge demonstrates how such failures occur and why linear regression can be dangerously misleading when relationships are non‑linear or when control variables are measured imperfectly.
 
-## Visual Overview of the True vs Observed System
+## <span style="color:brown; font-style:italic;">Visual Overview of the True vs Observed System</span>
 
 ::: {.columns}
 ::: {.column width="48%"}
@@ -181,7 +182,7 @@ $$
 
 
 
-### The Data Generation Process
+### <span style="color:brown; font-style:italic;">The Data Generation Process</span>
 
 ```{python}
 #| echo: false
@@ -347,11 +348,11 @@ plt.show()
 
 <!-- ### Questions to Answer for 75% Grade on Challenge  -->
 
-## **Question 1.** **Bivariate Regression Analysis with StressSurvey:** 
+## <span style="color:brown; font-style:italic;">Question 1. Bivariate Regression Analysis with StressSurvey:</span> 
 
 Run a bivariate regression of Anxiety on StressSurvey. What are the estimated coefficients? How do they compare to the true relationship?
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -381,11 +382,11 @@ However, this comparison is misleading because we're regressing Anxiety on Stres
 ---
 
 
-## **Question 2. Visualization of Bivariate Relationship:** 
+## <span style="color:brown; font-style:italic;">Question 2. Visualization of Bivariate Relationship:</span> 
 
 Create a scatter plot with the regression line showing the relationship between StressSurvey and Anxiety. Comment on the fit and any potential issues.
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 ```{python}
 #| label: fig-stress-survey-bivariate
@@ -423,11 +424,11 @@ The scatter plot shows an extremely tight linear relationship between StressSurv
 
 ---
 
-## **Question 3. Bivariate Regression Analysis with Time:** 
+## <span style="color:brown; font-style:italic;">Question 3. Bivariate Regression Analysis with Time:</span> 
 
 Run a bivariate regression of Anxiety on Time. What are the estimated coefficients? How do they compare to the true relationship?
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -456,10 +457,10 @@ This demonstrates the classic omitted variable bias problem: when a relevant var
 
 ---
 
-## **Question 4. Visualization of Bivariate Relationship:** 
+## <span style="color:brown; font-style:italic;">Question 4. Visualization of Bivariate Relationship:</span> 
 Create a scatter plot with the regression line showing the relationship between Time and Anxiety. Comment on the fit and any potential issues.
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 ```{python}
 #| label: fig-time-bivariate
@@ -497,10 +498,10 @@ The scatter plot shows a positive linear relationship between Time and Anxiety, 
 
 ---
 
-## **Question 5. Multiple Regression Analysis:** 
+## <span style="color:brown; font-style:italic;">Question 5. Multiple Regression Analysis:</span> 
 Run a multiple regression of Anxiety on both **StressSurvey** and Time. What are the estimated coefficients? How do they compare to the true relationship?
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -567,10 +568,10 @@ When analyzing your multiple regression results, compare them to the **true rela
 
 ### Questions to Answer for 85% Grade on Challenge -->
 
-## **Question 6. Multiple Regression Analysis:** 
+## <span style="color:brown; font-style:italic;">Question 6. Multiple Regression Analysis:</span> 
 Run a multiple regression of Anxiety on both **Stress** and Time. What are the estimated coefficients? How do they compare to the true relationship?
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -613,10 +614,10 @@ The R-squared is 1.000 (perfect fit), and all coefficients match the true relati
 
 ---
 
-## **Question 7. Model Comparison:** 
+## <span style="color:brown; font-style:italic;">Question 7. Model Comparison:</span> 
 Compare the R-squared values and coefficient interpretations between the two multiple regression models. Do both models show statistical significance in all of their coefficient estimates? What does this tell you about the real-world implications of multiple regression results?
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -705,10 +706,10 @@ This demonstrates why we must be skeptical of regression results, especially whe
 
 <!-- ### Questions to Answer for 95% Grade on Challenge -->
 
-## **Question 8. Reflect on Real-World Implications:** 
+## <span style="color:brown; font-style:italic;">Question 8. Reflect on Real-World Implications:</span> 
 For each of the two multiple regression models, assume their respective outputs/conclusions were published in academic journals and then subsequently picked up by the popular press.  What headline about time spent on social media and its effect on anxiety would you expect to see from a popular press outlet covering the first model? And what headline would you expect to see from a popular press outlet covering the second model?  Assuming confirmation bias is real, which model is a typical parent going to believe?  Which model will Facebook, Instagram, and TikTok executives prefer?
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 ### Model 1 (StressSurvey + Time) Headline:
 
@@ -750,10 +751,10 @@ Model 2 would be problematic for them because it confirms public concerns about 
 
 <!-- ### Questions to Answer for 100% Grade on Challenge -->
 
-## **Question 9. Avoiding Misleading Statistical Significance:** 
+## <span style="color:brown; font-style:italic;">Question 9. Avoiding Misleading Statistical Significance:</span> 
 Reflect on this tip to avoid being misled by statistically significant results: splitting the sample into meaningful subsets ("statistical regimes"), and using graphical diagnostics for linearity rather than blind reliance on "canned" regressions. Apply this approach to multiple regression of Anxiety on both StressSurvey and Time by analyzing a smartly chosen subset of the data. What specific subset did you choose and why?  Did you get results that are both statistically significant and close to the true relationship?
 
-**Answer:**
+<span style="color:brown; font-style:italic;">Answer:</span>
 
 The key insight is to identify "statistical regimes" where the relationship might be more linear. Looking at the data, I notice that the non-linearity in the StressSurvey-Stress relationship is most pronounced at the extremes. Let me examine the relationship more carefully and choose a subset where StressSurvey and Stress have a more linear relationship.
 
@@ -887,21 +888,21 @@ This is exactly the kind of careful analysis that prevents the catastrophic erro
 
 ---
 
-## Conclusion
+## <span style="color:brown; font-style:italic;">Conclusion</span>
 
 This analysis demonstrates that **statistically significant results with high R-squared can be fundamentally incorrect** when the assumption of linearity is violated, particularly when proxy variables with non-linear relationships are used as control variables.
 
-### Key Takeaways
+### <span style="color:brown; font-style:italic;">Key Takeaways</span>
 
-1. **Proxy variables can mislead:** Even "good" proxies (like StressSurvey) can produce wrong coefficients if their relationship with the outcome is non-linear. In our analysis, StressSurvey produced a Time coefficient of -2.7799 (significant, p < 0.05), while the true coefficient is +0.1—a complete sign reversal.
+1. <span style="color:maroon; font-style:italic;">**Proxy variables can mislead:**</span> Even "good" proxies (like StressSurvey) can produce wrong coefficients if their relationship with the outcome is non-linear. In our analysis, StressSurvey produced a Time coefficient of -2.7799 (significant, p < 0.05), while the true coefficient is +0.1—a complete sign reversal.
 
-2. **Statistical significance ≠ correctness:** Both models showed statistical significance, but one had the wrong sign for the Time coefficient. Significance alone cannot distinguish correct from incorrect models when linearity is violated.
+2. <span style="color:maroon; font-style:italic;">**Statistical significance ≠ correctness:**</span> Both models showed statistical significance, but one had the wrong sign for the Time coefficient. Significance alone cannot distinguish correct from incorrect models when linearity is violated.
 
-3. **High R-squared ≠ truth:** A model can fit the data well (R² = 0.9350) while telling a completely false story. Model fit does not guarantee accurate coefficient estimates or correct causal interpretations.
+3. <span style="color:maroon; font-style:italic;">**High R-squared ≠ truth:**</span> A model can fit the data well (R² = 0.9350) while telling a completely false story. Model fit does not guarantee accurate coefficient estimates or correct causal interpretations.
 
-4. **Regime analysis helps:** Splitting the sample into subsets with more linear relationships can recover correct coefficients. By analyzing the subset where Stress ≤ 2, we recovered the correct Time coefficient (0.10), matching the true parameter value.
+4. <span style="color:maroon; font-style:italic;">**Regime analysis helps:**</span> Splitting the sample into subsets with more linear relationships can recover correct coefficients. By analyzing the subset where Stress ≤ 2, we recovered the correct Time coefficient (0.10), matching the true parameter value.
 
-5. **Visual diagnostics are essential:** Graphical analysis and regime identification are critical for detecting non-linearity and preventing misleading regression results. Always plot relationships before trusting regression outputs.
+5. <span style="color:maroon; font-style:italic;">**Visual diagnostics are essential:**</span> Graphical analysis and regime identification are critical for detecting non-linearity and preventing misleading regression results. Always plot relationships before trusting regression outputs.
 
 ::: {.columns}
 ::: {.column width="48%"}
@@ -945,7 +946,7 @@ flowchart TD
 :::
 :::
 
-### Final Assessment
+### <span style="color:brown; font-style:italic;">Final Assessment</span>
 
 **Linear regression assumes linearity. When that assumption is violated—even slightly—the results can be catastrophically wrong.** Our analysis demonstrates that regression models can produce results that are simultaneously statistically significant, well-fitting, and fundamentally incorrect when proxy variables exhibit non-linear relationships with the outcome.
 

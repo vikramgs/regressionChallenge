@@ -137,8 +137,9 @@ window.Quarto = {
 
 
 <!-- # 🗑️ Regression Challenge - Linear Model Interpretability -->
-<section id="introduction---to-the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="introduction---to-the-problem"><strong>Introduction - to the problem</strong></h2>
+<!-- ## Introduction - to the challenge -->
+<section id="introduction-to-the-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-the-challenge"><span style="color:brown; font-style:italic;">Introduction – to the challenge</span></h2>
 <p>This challenge investigates how linear regression can give misleading coefficients when its core assumption of linearity is violated. We begin with a setting where the true data‑generating process for anxiety is:</p>
 <p><span class="math display">\[
 \text{Anxiety} = \beta_0 + \beta_1 \cdot \text{Stress} + \beta_2 \cdot \text{Time} + \varepsilon
@@ -166,7 +167,7 @@ window.Quarto = {
 <p>This challenge demonstrates how such failures occur and why linear regression can be dangerously misleading when relationships are non‑linear or when control variables are measured imperfectly.</p>
 </section>
 <section id="visual-overview-of-the-true-vs-observed-system" class="level2">
-<h2 class="anchored" data-anchor-id="visual-overview-of-the-true-vs-observed-system">Visual Overview of the True vs Observed System</h2>
+<h2 class="anchored" data-anchor-id="visual-overview-of-the-true-vs-observed-system"><span style="color:brown; font-style:italic;">Visual Overview of the True vs Observed System</span></h2>
 <div class="columns">
 <div class="column" style="width:48%;">
 <div class="cell" data-layout-align="default">
@@ -328,7 +329,7 @@ $$
 **Why This Matters:** When we run regression analysis, we're trying to estimate these $\beta$ coefficients. If our regression gives us coefficients that are very different from these true values, we know our model is wrong—even if it has good statistical fit!
 ::: -->
 <section id="the-data-generation-process" class="level3">
-<h3 class="anchored" data-anchor-id="the-data-generation-process">The Data Generation Process</h3>
+<h3 class="anchored" data-anchor-id="the-data-generation-process"><span style="color:brown; font-style:italic;">The Data Generation Process</span></h3>
 <div class="cell" data-execution_count="2">
 <div id="tbl-observations" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -336,7 +337,7 @@ $$
 Table&nbsp;1: Observed data with known true relationships
 </figcaption>
 <div aria-describedby="tbl-observations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="100">
+<div class="cell-output cell-output-display" data-execution_count="380">
 <div>
 
 
@@ -593,10 +594,10 @@ Figure&nbsp;1: StressSurvey as a proxy for actual Stress levels
 </section>
 </section>
 <section id="question-1.-bivariate-regression-analysis-with-stresssurvey" class="level2">
-<h2 class="anchored" data-anchor-id="question-1.-bivariate-regression-analysis-with-stresssurvey"><strong>Question 1.</strong> <strong>Bivariate Regression Analysis with StressSurvey:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-1.-bivariate-regression-analysis-with-stresssurvey"><span style="color:brown; font-style:italic;">Question 1. Bivariate Regression Analysis with StressSurvey:</span></h2>
 <p>Run a bivariate regression of Anxiety on StressSurvey. What are the estimated coefficients? How do they compare to the true relationship?</p>
-<p><strong>Answer:</strong></p>
-<div id="94758461" class="cell" data-execution_count="4">
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
+<div id="97bb5326" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>Bivariate Regression: Anxiety ~ StressSurvey
 ==================================================
@@ -606,7 +607,7 @@ Dep. Variable:                Anxiety   R-squared:                       0.901
 Model:                            OLS   Adj. R-squared:                  0.893
 Method:                 Least Squares   F-statistic:                     118.4
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):           6.68e-08
-Time:                        21:55:29   Log-Likelihood:                -27.079
+Time:                        22:20:24   Log-Likelihood:                -27.079
 No. Observations:                  15   AIC:                             58.16
 Df Residuals:                      13   BIC:                             59.57
 Df Model:                           1                                         
@@ -641,9 +642,9 @@ Note: This model uses StressSurvey, not Stress, so direct comparison is not stra
 <hr>
 </section>
 <section id="question-2.-visualization-of-bivariate-relationship" class="level2">
-<h2 class="anchored" data-anchor-id="question-2.-visualization-of-bivariate-relationship"><strong>Question 2. Visualization of Bivariate Relationship:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-2.-visualization-of-bivariate-relationship"><span style="color:brown; font-style:italic;">Question 2. Visualization of Bivariate Relationship:</span></h2>
 <p>Create a scatter plot with the regression line showing the relationship between StressSurvey and Anxiety. Comment on the fit and any potential issues.</p>
-<p><strong>Answer:</strong></p>
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
 <div id="cell-fig-stress-survey-bivariate" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="fig-stress-survey-bivariate" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -668,10 +669,10 @@ Figure&nbsp;2: Bivariate relationship between StressSurvey and Anxiety with regr
 <hr>
 </section>
 <section id="question-3.-bivariate-regression-analysis-with-time" class="level2">
-<h2 class="anchored" data-anchor-id="question-3.-bivariate-regression-analysis-with-time"><strong>Question 3. Bivariate Regression Analysis with Time:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-3.-bivariate-regression-analysis-with-time"><span style="color:brown; font-style:italic;">Question 3. Bivariate Regression Analysis with Time:</span></h2>
 <p>Run a bivariate regression of Anxiety on Time. What are the estimated coefficients? How do they compare to the true relationship?</p>
-<p><strong>Answer:</strong></p>
-<div id="a83a93a3" class="cell" data-execution_count="6">
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
+<div id="c1813adf" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>Bivariate Regression: Anxiety ~ Time
 ==================================================
@@ -681,7 +682,7 @@ Dep. Variable:                Anxiety   R-squared:                       0.563
 Model:                            OLS   Adj. R-squared:                  0.529
 Method:                 Least Squares   F-statistic:                     16.75
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):            0.00127
-Time:                        21:55:29   Log-Likelihood:                -38.223
+Time:                        22:20:24   Log-Likelihood:                -38.223
 No. Observations:                  15   AIC:                             80.45
 Df Residuals:                      13   BIC:                             81.86
 Df Model:                           1                                         
@@ -719,9 +720,9 @@ Comparison: The estimated coefficient (5.3406) is MUCH larger than the true coef
 <hr>
 </section>
 <section id="question-4.-visualization-of-bivariate-relationship" class="level2">
-<h2 class="anchored" data-anchor-id="question-4.-visualization-of-bivariate-relationship"><strong>Question 4. Visualization of Bivariate Relationship:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-4.-visualization-of-bivariate-relationship"><span style="color:brown; font-style:italic;">Question 4. Visualization of Bivariate Relationship:</span></h2>
 <p>Create a scatter plot with the regression line showing the relationship between Time and Anxiety. Comment on the fit and any potential issues.</p>
-<p><strong>Answer:</strong></p>
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
 <div id="cell-fig-time-bivariate" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div id="fig-time-bivariate" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -746,10 +747,10 @@ Figure&nbsp;3: Bivariate relationship between Time and Anxiety with regression l
 <hr>
 </section>
 <section id="question-5.-multiple-regression-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="question-5.-multiple-regression-analysis"><strong>Question 5. Multiple Regression Analysis:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-5.-multiple-regression-analysis"><span style="color:brown; font-style:italic;">Question 5. Multiple Regression Analysis:</span></h2>
 <p>Run a multiple regression of Anxiety on both <strong>StressSurvey</strong> and Time. What are the estimated coefficients? How do they compare to the true relationship?</p>
-<p><strong>Answer:</strong></p>
-<div id="d5edc34a" class="cell" data-execution_count="8">
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
+<div id="382587ab" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
 <pre><code>Multiple Regression: Anxiety ~ StressSurvey + Time
 ============================================================
@@ -759,7 +760,7 @@ Dep. Variable:                Anxiety   R-squared:                       0.935
 Model:                            OLS   Adj. R-squared:                  0.924
 Method:                 Least Squares   F-statistic:                     86.32
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):           7.54e-08
-Time:                        21:55:29   Log-Likelihood:                -23.931
+Time:                        22:20:24   Log-Likelihood:                -23.931
 No. Observations:                  15   AIC:                             53.86
 Df Residuals:                      12   BIC:                             55.99
 Df Model:                           2                                         
@@ -836,10 +837,10 @@ When analyzing your multiple regression results, compare them to the **true rela
 ### Questions to Answer for 85% Grade on Challenge -->
 </section>
 <section id="question-6.-multiple-regression-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="question-6.-multiple-regression-analysis"><strong>Question 6. Multiple Regression Analysis:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-6.-multiple-regression-analysis"><span style="color:brown; font-style:italic;">Question 6. Multiple Regression Analysis:</span></h2>
 <p>Run a multiple regression of Anxiety on both <strong>Stress</strong> and Time. What are the estimated coefficients? How do they compare to the true relationship?</p>
-<p><strong>Answer:</strong></p>
-<div id="01b65ced" class="cell" data-execution_count="9">
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
+<div id="5b2bbeb9" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
 <pre><code>Multiple Regression: Anxiety ~ Stress + Time
 ============================================================
@@ -849,7 +850,7 @@ Dep. Variable:                Anxiety   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                  1.000
 Method:                 Least Squares   F-statistic:                 1.511e+31
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):          3.92e-183
-Time:                        21:55:29   Log-Likelihood:                 480.58
+Time:                        22:20:24   Log-Likelihood:                 480.58
 No. Observations:                  15   AIC:                            -955.2
 Df Residuals:                      12   BIC:                            -953.0
 Df Model:                           2                                         
@@ -905,10 +906,10 @@ Estimated vs True:
 <hr>
 </section>
 <section id="question-7.-model-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="question-7.-model-comparison"><strong>Question 7. Model Comparison:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-7.-model-comparison"><span style="color:brown; font-style:italic;">Question 7. Model Comparison:</span></h2>
 <p>Compare the R-squared values and coefficient interpretations between the two multiple regression models. Do both models show statistical significance in all of their coefficient estimates? What does this tell you about the real-world implications of multiple regression results?</p>
-<p><strong>Answer:</strong></p>
-<div id="693e0a88" class="cell" data-execution_count="10">
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
+<div id="84905d0f" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>MODEL COMPARISON
 ================================================================================
@@ -1000,9 +1001,9 @@ KEY FINDINGS:
 <!-- ### Questions to Answer for 95% Grade on Challenge -->
 </section>
 <section id="question-8.-reflect-on-real-world-implications" class="level2">
-<h2 class="anchored" data-anchor-id="question-8.-reflect-on-real-world-implications"><strong>Question 8. Reflect on Real-World Implications:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-8.-reflect-on-real-world-implications"><span style="color:brown; font-style:italic;">Question 8. Reflect on Real-World Implications:</span></h2>
 <p>For each of the two multiple regression models, assume their respective outputs/conclusions were published in academic journals and then subsequently picked up by the popular press. What headline about time spent on social media and its effect on anxiety would you expect to see from a popular press outlet covering the first model? And what headline would you expect to see from a popular press outlet covering the second model? Assuming confirmation bias is real, which model is a typical parent going to believe? Which model will Facebook, Instagram, and TikTok executives prefer?</p>
-<p><strong>Answer:</strong></p>
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
 <section id="model-1-stresssurvey-time-headline" class="level3">
 <h3 class="anchored" data-anchor-id="model-1-stresssurvey-time-headline">Model 1 (StressSurvey + Time) Headline:</h3>
 <p><strong>“BREAKING: New Study Finds Social Media Use Actually REDUCES Anxiety”</strong></p>
@@ -1027,11 +1028,11 @@ KEY FINDINGS:
 </section>
 </section>
 <section id="question-9.-avoiding-misleading-statistical-significance" class="level2">
-<h2 class="anchored" data-anchor-id="question-9.-avoiding-misleading-statistical-significance"><strong>Question 9. Avoiding Misleading Statistical Significance:</strong></h2>
+<h2 class="anchored" data-anchor-id="question-9.-avoiding-misleading-statistical-significance"><span style="color:brown; font-style:italic;">Question 9. Avoiding Misleading Statistical Significance:</span></h2>
 <p>Reflect on this tip to avoid being misled by statistically significant results: splitting the sample into meaningful subsets (“statistical regimes”), and using graphical diagnostics for linearity rather than blind reliance on “canned” regressions. Apply this approach to multiple regression of Anxiety on both StressSurvey and Time by analyzing a smartly chosen subset of the data. What specific subset did you choose and why? Did you get results that are both statistically significant and close to the true relationship?</p>
-<p><strong>Answer:</strong></p>
+<p><span style="color:brown; font-style:italic;">Answer:</span></p>
 <p>The key insight is to identify “statistical regimes” where the relationship might be more linear. Looking at the data, I notice that the non-linearity in the StressSurvey-Stress relationship is most pronounced at the extremes. Let me examine the relationship more carefully and choose a subset where StressSurvey and Stress have a more linear relationship.</p>
-<div id="f354d032" class="cell" data-execution_count="11">
+<div id="f7bd3817" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1058,7 +1059,7 @@ Subset size: 9 observations (out of 15 total)</code></pre>
 <li><p><strong>Meaningful Regime:</strong> This represents a “low-to-moderate stress” regime where the proxy variable maintains a linear relationship with the true variable.</p></li>
 </ol>
 <p>Now let’s run the multiple regression on this subset:</p>
-<div id="c34e6222" class="cell" data-execution_count="12">
+<div id="39a8067e" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
 <pre><code>Multiple Regression on Subset: Anxiety ~ StressSurvey + Time
 (Subset: Stress ≤ 2)
@@ -1069,7 +1070,7 @@ Dep. Variable:                Anxiety   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                  1.000
 Method:                 Least Squares   F-statistic:                 4.892e+30
 Date:                Wed, 12 Nov 2025   Prob (F-statistic):           2.31e-91
-Time:                        21:55:29   Log-Likelihood:                 301.52
+Time:                        22:20:24   Log-Likelihood:                 301.52
 No. Observations:                   9   AIC:                            -597.0
 Df Residuals:                       6   BIC:                            -596.4
 Df Model:                           2                                         
@@ -1147,16 +1148,16 @@ Time p-value: 0.0000 → Significant</code></pre>
 <hr>
 </section>
 <section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<h2 class="anchored" data-anchor-id="conclusion"><span style="color:brown; font-style:italic;">Conclusion</span></h2>
 <p>This analysis demonstrates that <strong>statistically significant results with high R-squared can be fundamentally incorrect</strong> when the assumption of linearity is violated, particularly when proxy variables with non-linear relationships are used as control variables.</p>
 <section id="key-takeaways" class="level3">
-<h3 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h3>
+<h3 class="anchored" data-anchor-id="key-takeaways"><span style="color:brown; font-style:italic;">Key Takeaways</span></h3>
 <ol type="1">
-<li><p><strong>Proxy variables can mislead:</strong> Even “good” proxies (like StressSurvey) can produce wrong coefficients if their relationship with the outcome is non-linear. In our analysis, StressSurvey produced a Time coefficient of -2.7799 (significant, p &lt; 0.05), while the true coefficient is +0.1—a complete sign reversal.</p></li>
-<li><p><strong>Statistical significance ≠ correctness:</strong> Both models showed statistical significance, but one had the wrong sign for the Time coefficient. Significance alone cannot distinguish correct from incorrect models when linearity is violated.</p></li>
-<li><p><strong>High R-squared ≠ truth:</strong> A model can fit the data well (R² = 0.9350) while telling a completely false story. Model fit does not guarantee accurate coefficient estimates or correct causal interpretations.</p></li>
-<li><p><strong>Regime analysis helps:</strong> Splitting the sample into subsets with more linear relationships can recover correct coefficients. By analyzing the subset where Stress ≤ 2, we recovered the correct Time coefficient (0.10), matching the true parameter value.</p></li>
-<li><p><strong>Visual diagnostics are essential:</strong> Graphical analysis and regime identification are critical for detecting non-linearity and preventing misleading regression results. Always plot relationships before trusting regression outputs.</p></li>
+<li><p><span style="color:maroon; font-style:italic;"><strong>Proxy variables can mislead:</strong></span> Even “good” proxies (like StressSurvey) can produce wrong coefficients if their relationship with the outcome is non-linear. In our analysis, StressSurvey produced a Time coefficient of -2.7799 (significant, p &lt; 0.05), while the true coefficient is +0.1—a complete sign reversal.</p></li>
+<li><p><span style="color:maroon; font-style:italic;"><strong>Statistical significance ≠ correctness:</strong></span> Both models showed statistical significance, but one had the wrong sign for the Time coefficient. Significance alone cannot distinguish correct from incorrect models when linearity is violated.</p></li>
+<li><p><span style="color:maroon; font-style:italic;"><strong>High R-squared ≠ truth:</strong></span> A model can fit the data well (R² = 0.9350) while telling a completely false story. Model fit does not guarantee accurate coefficient estimates or correct causal interpretations.</p></li>
+<li><p><span style="color:maroon; font-style:italic;"><strong>Regime analysis helps:</strong></span> Splitting the sample into subsets with more linear relationships can recover correct coefficients. By analyzing the subset where Stress ≤ 2, we recovered the correct Time coefficient (0.10), matching the true parameter value.</p></li>
+<li><p><span style="color:maroon; font-style:italic;"><strong>Visual diagnostics are essential:</strong></span> Graphical analysis and regime identification are critical for detecting non-linearity and preventing misleading regression results. Always plot relationships before trusting regression outputs.</p></li>
 </ol>
 <div class="columns">
 <div class="column" style="width:48%;">
@@ -1243,7 +1244,7 @@ Time p-value: 0.0000 → Significant</code></pre>
 </div>
 </section>
 <section id="final-assessment" class="level3">
-<h3 class="anchored" data-anchor-id="final-assessment">Final Assessment</h3>
+<h3 class="anchored" data-anchor-id="final-assessment"><span style="color:brown; font-style:italic;">Final Assessment</span></h3>
 <p><strong>Linear regression assumes linearity. When that assumption is violated—even slightly—the results can be catastrophically wrong.</strong> Our analysis demonstrates that regression models can produce results that are simultaneously statistically significant, well-fitting, and fundamentally incorrect when proxy variables exhibit non-linear relationships with the outcome.</p>
 <p>The solution requires prioritizing graphical diagnostics, regime analysis, and theoretical coherence over blind reliance on statistical significance and R-squared values. <strong>Always question your models, visualize your data, and be skeptical of results that seem too good to be true—because they often are.</strong></p>
 <!-- ::: {.callout-tip}
