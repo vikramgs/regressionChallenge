@@ -71,3 +71,47 @@ pre.mermaid.mermaid-js:not(:has(svg)) {
   overflow-x: auto !important;
 }
 
+/* Ensure quarto content container allows figures to fit */
+.quarto-content {
+  max-width: 100% !important;
+  overflow-x: visible !important;
+}
+
+/* Make sure figure output doesn't exceed container */
+.cell-output-display img,
+.cell-output-display svg,
+.cell-output-display figure {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Ensure subplot figures fit - important for side-by-side plots */
+.cell-output-display .figure,
+.cell-output-display .quarto-figure {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.cell-output-display .figure img,
+.cell-output-display .quarto-figure img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Main content area should allow wide figures */
+main.content {
+  max-width: 100% !important;
+  overflow-x: visible !important;
+}
+
+/* Ensure page columns don't constrain width */
+.page-columns {
+  max-width: 100% !important;
+}
+
