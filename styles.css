@@ -49,3 +49,25 @@ pre.mermaid.mermaid-js:not(:has(svg)) {
   margin: 1em 0 !important;
 }
 
+/* Ensure matplotlib figures fit within page width */
+.figure, .quarto-figure, figure {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.figure img, .quarto-figure img, figure img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Ensure plot containers don't overflow */
+.output {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+.cell-output {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+

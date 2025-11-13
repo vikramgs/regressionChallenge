@@ -760,16 +760,20 @@ The key insight is to identify "statistical regimes" where the relationship migh
 
 ```{python}
 #| echo: false
+#| fig-width: 7
+#| fig-height: 3.2
+#| fig-dpi: 100
 # First, let's visualize the StressSurvey-Stress relationship to identify regimes
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 3.2), constrained_layout=True)
 
 # Plot 1: StressSurvey vs Stress (full data)
 ax1.plot(observDF['Stress'], observDF['StressSurvey'], 
-         'o-', linewidth=2, markersize=10, color='purple')
-ax1.set_xlabel('Actual Stress Level', fontsize=12)
-ax1.set_ylabel('Stress Survey Response', fontsize=12)
-ax1.set_title('Full Data: StressSurvey vs Stress', fontsize=14, fontweight='bold')
+         'o-', linewidth=1.5, markersize=5, color='purple')
+ax1.set_xlabel('Actual Stress Level', fontsize=9)
+ax1.set_ylabel('Stress Survey Response', fontsize=9)
+ax1.set_title('Full Data: StressSurvey vs Stress', fontsize=10, fontweight='bold')
 ax1.grid(True, alpha=0.3)
+ax1.tick_params(labelsize=8)
 
 # Identify a subset where the relationship is more linear
 # Looking at the data: Stress values 0, 1, 2 have StressSurvey values 0, 3, 6
@@ -779,13 +783,13 @@ subset_data = observDF[subset_mask].copy()
 
 # Plot 2: Subset visualization
 ax2.plot(subset_data['Stress'], subset_data['StressSurvey'], 
-         'o-', linewidth=2, markersize=10, color='darkgreen')
-ax2.set_xlabel('Actual Stress Level', fontsize=12)
-ax2.set_ylabel('Stress Survey Response', fontsize=12)
-ax2.set_title('Subset (Stress ≤ 2): More Linear Relationship', fontsize=14, fontweight='bold')
+         'o-', linewidth=1.5, markersize=5, color='darkgreen')
+ax2.set_xlabel('Actual Stress Level', fontsize=9)
+ax2.set_ylabel('Stress Survey Response', fontsize=9)
+ax2.set_title('Subset (Stress ≤ 2): More Linear', fontsize=10, fontweight='bold')
 ax2.grid(True, alpha=0.3)
+ax2.tick_params(labelsize=8)
 
-plt.tight_layout()
 plt.show()
 
 print("Subset Selection Rationale:")
