@@ -1,0 +1,51 @@
+/* Hide the source code blocks (code-copy-outer-scaffold) that show raw mermaid code */
+.cell .code-copy-outer-scaffold {
+  display: none !important;
+}
+
+/* Ensure mermaid diagrams fit within columns without horizontal scroll */
+.mermaid {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.mermaid svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Prevent horizontal scroll on the page */
+body, .quarto-content {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* Ensure column layout doesn't cause overflow */
+.columns {
+  display: flex;
+  gap: 2%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.column {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* After mermaid processes the diagrams, hide the pre.mermaid elements that still contain code */
+/* Note: This requires JavaScript to run after mermaid renders */
+pre.mermaid.mermaid-js:empty,
+pre.mermaid.mermaid-js:not(:has(svg)) {
+  display: none;
+}
+
+/* Ensure SVG diagrams rendered by mermaid are visible */
+.mermaid svg {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 1em 0 !important;
+}
+

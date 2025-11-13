@@ -2,7 +2,8 @@
 title: "Regression & Interpretability Challenge"
 subtitle: "Don't Trust Linear Models - The Perils of Non-Linearity"
 format:
-  html: default
+  html:
+    css: styles.css
 execute:
   echo: true
   eval: true
@@ -10,19 +11,104 @@ execute:
 
 # 🗑️ Regression Challenge - Linear Model Interpretability
 
-## Challenge Overview
+**Introduction**
 
-**Your Mission:** Create a comprehensive Quarto document that demonstrates the dangers of trusting linear models when relationships are non-linear, analyzes the interpretability issues that arise, and presents compelling visual evidence of why we need to be skeptical of regression results. Then render the document to HTML and deploy it via GitHub Pages using the starter repository workflow.
+This challenge investigates how linear regression can give misleading coefficients when its core assumption of linearity is violated. We begin with a setting where the true data‑generating process for anxiety is:
 
-::: {.callout-warning}
+$$
+\text{Anxiety} = \beta_0 + \beta_1 \cdot \text{Stress} + \beta_2 \cdot \text{Time} + \varepsilon
+$$
+
+with known coefficients:
+
+$$
+\beta_0 = 0, \qquad 
+\beta_1 = 1, \qquad 
+\beta_2 = 0.1
+$$
+
+so the true relationship simplifies to:
+
+$$
+\text{Anxiety} = \text{Stress} + 0.1 \cdot \text{Time} + \varepsilon
+$$
+
+However, researchers typically do **not** observe true physiological Stress. Instead, they observe a survey‑based proxy:
+
+$$
+\text{StressSurvey} = g(\text{Stress}) + \nu
+$$
+
+where \( g(\cdot) \) is **non‑linear** and \( \nu \) represents measurement noise.
+
+When StressSurvey replaces Stress inside a linear regression model,
+
+$$
+\text{Anxiety} = \alpha_0 + \alpha_1 \cdot \text{StressSurvey} + \alpha_2 \cdot \text{Time} + u,
+$$
+
+the model becomes mis‑specified. As a result, the estimated coefficients may become biased, distorted in magnitude, or even flip signs—even when the regression reports a high \(R^2\) and statistically significant p‑values.
+
+
+This challenge demonstrates how such failures occur and why linear regression can be dangerously misleading when relationships are non‑linear or when control variables are measured imperfectly.
+
+## Visual Overview of the True vs Observed System
+
+::: {.columns}
+::: {.column width="48%"}
+```{mermaid}
+flowchart TD
+    classDef title fill:#B3D9FF,stroke:#0066FF,color:#003366,font-weight:bold,font-size:14px
+    classDef node fill:#66B3FF,stroke:#0066FF,stroke-width:2.5px,color:#000033,font-weight:bold
+    classDef arrow stroke:#0066FF,stroke-width:2.5px
+
+    subgraph TrueSystem["TRUE CAUSAL SYSTEM"]
+        class TrueSystem title
+        style TrueSystem fill:#E6F2FF,stroke:#0066FF,stroke-width:2.5px,color:#003366,padding:10px
+
+        S["True Stress<br/>(Cortisol)"]:::node -->|"β₁ = 1"| A["Anxiety"]:::node
+        T["Time on Social Media"]:::node -->|"β₂ = 0.1"| A
+    end
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{mermaid}
+flowchart TD
+    classDef title fill:#FFE6CC,stroke:#FF6600,color:#993300,font-weight:bold,font-size:14px
+    classDef node fill:#FFB366,stroke:#FF6600,stroke-width:2.5px,color:#330000,font-weight:bold
+    classDef arrow stroke:#FF6600,stroke-width:2.5px
+
+    subgraph ObservedSystem["OBSERVED SYSTEM"]
+        class ObservedSystem title
+        style ObservedSystem fill:#FFF4E6,stroke:#FF6600,stroke-width:2.5px,color:#993300,padding:10px
+
+        S["True Stress<br/>(Unobserved)"]:::node -->|"Non-linear g(·)<br/>+ noise ν"| SS["StressSurvey<br/>(Proxy)"]:::node
+        SS -->|"Assumed<br/>Linear"| R["Mis-Specified Regression:<br/>Anxiety = α₀ + α₁·Survey + α₂·Time"]:::node
+        T["Time on Social Media"]:::node --> R
+    end
+```
+:::
+:::
+
+These diagrams help illustrate how the true linear relationships differ from the incorrectly observed proxy-based model, visually reinforcing the interpretability risks discussed in the introduction.
+
+<!-- ## Challenge Overview
+
+**Your Mission:** Create a comprehensive Quarto document that demonstrates the dangers of trusting linear models when relationships are non-linear, analyzes the interpretability issues that arise, and presents compelling visual evidence of why we need to be skeptical of regression results. Then render the document to HTML and deploy it via GitHub Pages using the starter repository workflow. -->
+
+<!-- ::: {.callout-warning}
 ## ⚠️ AI Partnership Required
 
 This challenge pushes boundaries intentionally. You'll tackle problems that normally require weeks of study, but with Cursor AI as your partner (and your brain keeping it honest), you can accomplish more than you thought possible.
 
 **The new reality:** The four stages of competence are Ignorance → Awareness → Learning → Mastery. AI lets us produce Mastery-level work while operating primarily in the Awareness stage. I focus on awareness training, you leverage AI for execution, and together we create outputs that used to require years of dedicated study.
-:::
+::: -->
 
-## Problem Violating the Assumption of Linearity🎯
+<!-- ## Problem Violating the Assumption of Linearity🎯
 
 > "We need to stop believing much of the empirical work we've been doing." - Christopher H. Achen
 
@@ -91,7 +177,9 @@ $$
 - $\beta_2 = 0.1$ (coefficient on Time is 0.1)
 
 **Why This Matters:** When we run regression analysis, we're trying to estimate these $\beta$ coefficients. If our regression gives us coefficients that are very different from these true values, we know our model is wrong—even if it has good statistical fit!
-:::
+::: -->
+
+
 
 ### The Data Generation Process
 
@@ -118,11 +206,11 @@ observDF = pd.DataFrame({
 ```{python}
 #| label: tbl-observations
 #| tbl-cap: "Observed data with known true relationships"
-#| echo: true
+#| echo: false
 observDF
 ```
 
-Notice that $Anxiety = Stress + 0.1 \times Time$ indeed holds perfectly. Also, notice the addition of a `StressSurvey` column. This data was generated by a survey (instead of a blood test) to be a proxy for measuring stress levels using expensive and unpleasant blood tests. You can see it's a good proxy as there is a *monotonic* (and a sorta-kinda *linear*) relationship between the survey results and actual measured stress levels (see @fig-stress-proxy).
+<!-- Notice that $Anxiety = Stress + 0.1 \times Time$ indeed holds perfectly. Also, notice the addition of a `StressSurvey` column. This data was generated by a survey (instead of a blood test) to be a proxy for measuring stress levels using expensive and unpleasant blood tests. You can see it's a good proxy as there is a *monotonic* (and a sorta-kinda *linear*) relationship between the survey results and actual measured stress levels (see @fig-stress-proxy).
 
 ::: {.callout-note}
 ## 📝 Methodological Note: The Contrived Nature of This Example
@@ -133,12 +221,12 @@ Notice that $Anxiety = Stress + 0.1 \times Time$ indeed holds perfectly. Also, n
 - **Survey stress responses** have a non-linear relationship with anxiety (also by design)
 
 In the real world, there is no reason to believe linearity holds for either measurement method. Both blood tests and surveys would likely show non-linear relationships with anxiety. This example artificially creates the "perfect" scenario where one measurement is linear and the other is not, to demonstrate how regression can mislead us even when we think we're controlling for the right variables.
-:::
+::: -->
 
 ```{python}
 #| label: fig-stress-proxy
 #| fig-cap: "StressSurvey as a proxy for actual Stress levels"
-#| echo: true
+#| echo: false
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -801,21 +889,67 @@ This is exactly the kind of careful analysis that prevents the catastrophic erro
 
 ## Conclusion
 
-This analysis demonstrates a critical danger in regression analysis: **statistically significant results with high R-squared can be completely wrong** when relationships are non-linear or when proxy variables are used.
+This analysis demonstrates that **statistically significant results with high R-squared can be fundamentally incorrect** when the assumption of linearity is violated, particularly when proxy variables with non-linear relationships are used as control variables.
 
-**Key Takeaways:**
+### Key Takeaways
 
-1. **Proxy variables can mislead:** Even "good" proxies (like StressSurvey) can produce wrong coefficients if their relationship with the outcome is non-linear.
+1. **Proxy variables can mislead:** Even "good" proxies (like StressSurvey) can produce wrong coefficients if their relationship with the outcome is non-linear. In our analysis, StressSurvey produced a Time coefficient of -2.7799 (significant, p < 0.05), while the true coefficient is +0.1—a complete sign reversal.
 
-2. **Statistical significance ≠ correctness:** Both models showed statistical significance, but one had the wrong sign for the Time coefficient.
+2. **Statistical significance ≠ correctness:** Both models showed statistical significance, but one had the wrong sign for the Time coefficient. Significance alone cannot distinguish correct from incorrect models when linearity is violated.
 
-3. **High R-squared ≠ truth:** A model can fit the data well (R² = 0.9350) while telling a completely false story.
+3. **High R-squared ≠ truth:** A model can fit the data well (R² = 0.9350) while telling a completely false story. Model fit does not guarantee accurate coefficient estimates or correct causal interpretations.
 
-4. **Regime analysis helps:** Splitting the sample into subsets with more linear relationships can recover correct coefficients.
+4. **Regime analysis helps:** Splitting the sample into subsets with more linear relationships can recover correct coefficients. By analyzing the subset where Stress ≤ 2, we recovered the correct Time coefficient (0.10), matching the true parameter value.
 
-5. **Visual diagnostics are essential:** Always plot relationships before trusting regression results.
+5. **Visual diagnostics are essential:** Graphical analysis and regime identification are critical for detecting non-linearity and preventing misleading regression results. Always plot relationships before trusting regression outputs.
 
-**The Bottom Line:** Linear regression assumes linearity. When that assumption is violated—even slightly—the results can be catastrophically wrong. Always question your models, visualize your data, and be skeptical of results that seem too good to be true.
+::: {.columns}
+::: {.column width="48%"}
+```{mermaid}
+flowchart TD
+    classDef problem fill:#FFE6E6,stroke:#CC0000,color:#660000,font-weight:bold,font-size:12px
+    classDef node fill:#F0F0F0,stroke:#666666,stroke-width:2px,color:#000000,font-weight:bold
+
+    subgraph Problem["THE PROBLEM"]
+        class Problem problem
+        style Problem fill:#FFE6E6,stroke:#CC0000,stroke-width:2.5px,color:#660000,padding:10px
+
+        P1["Non-Linear Proxy<br/>Variables"]:::node -->|"Leads to"| P2["Wrong Coefficient<br/>Signs & Magnitudes"]:::node
+        P3["High R² + Significant<br/>p-values"]:::node -->|"Creates illusion of"| P4["Valid Results"]:::node
+        P2 --> P5["Misleading Policy<br/>Recommendations"]:::node
+        P4 --> P5
+    end
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{mermaid}
+flowchart TD
+    classDef solution fill:#E6F7E6,stroke:#00AA00,color:#003300,font-weight:bold,font-size:12px
+    classDef node fill:#F0F0F0,stroke:#666666,stroke-width:2px,color:#000000,font-weight:bold
+
+    subgraph Solution["THE SOLUTION"]
+        class Solution solution
+        style Solution fill:#E6F7E6,stroke:#00AA00,stroke-width:2.5px,color:#003300,padding:10px
+
+        S1["Visual Diagnostics<br/>& Graphical Analysis"]:::node -->|"Identify"| S2["Statistical<br/>Regimes"]:::node
+        S2 -->|"Analyze"| S3["Linear Subsets<br/>of Data"]:::node
+        S3 -->|"Recover"| S4["Correct Coefficients<br/>& Causal Estimates"]:::node
+        S1 -->|"Check for"| S5["Non-Linearity<br/>Patterns"]:::node
+        S5 --> S2
+    end
+```
+:::
+:::
+
+### Final Assessment
+
+**Linear regression assumes linearity. When that assumption is violated—even slightly—the results can be catastrophically wrong.** Our analysis demonstrates that regression models can produce results that are simultaneously statistically significant, well-fitting, and fundamentally incorrect when proxy variables exhibit non-linear relationships with the outcome.
+
+The solution requires prioritizing graphical diagnostics, regime analysis, and theoretical coherence over blind reliance on statistical significance and R-squared values. **Always question your models, visualize your data, and be skeptical of results that seem too good to be true—because they often are.**
 
 <!-- ::: {.callout-tip}
 ## 🎯 For 100% Grade: Focus on What's Most Interesting
