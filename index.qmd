@@ -352,7 +352,7 @@ plt.show()
 
 Run a bivariate regression of Anxiety on StressSurvey. What are the estimated coefficients? How do they compare to the true relationship?
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -386,7 +386,7 @@ However, this comparison is misleading because we're regressing Anxiety on Stres
 
 Create a scatter plot with the regression line showing the relationship between StressSurvey and Anxiety. Comment on the fit and any potential issues.
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold;">Answer:</span>
 
 ```{python}
 #| label: fig-stress-survey-bivariate
@@ -428,7 +428,7 @@ The scatter plot shows an extremely tight linear relationship between StressSurv
 
 Run a bivariate regression of Anxiety on Time. What are the estimated coefficients? How do they compare to the true relationship?
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -460,7 +460,7 @@ This demonstrates the classic omitted variable bias problem: when a relevant var
 ## <span style="color:brown; font-style:italic;">Question 4. Visualization of Bivariate Relationship:</span> 
 Create a scatter plot with the regression line showing the relationship between Time and Anxiety. Comment on the fit and any potential issues.
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold;">Answer:</span>
 
 ```{python}
 #| label: fig-time-bivariate
@@ -501,7 +501,7 @@ The scatter plot shows a positive linear relationship between Time and Anxiety, 
 ## <span style="color:brown; font-style:italic;">Question 5. Multiple Regression Analysis:</span> 
 Run a multiple regression of Anxiety on both **StressSurvey** and Time. What are the estimated coefficients? How do they compare to the true relationship?
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -571,7 +571,7 @@ When analyzing your multiple regression results, compare them to the **true rela
 ## <span style="color:brown; font-style:italic;">Question 6. Multiple Regression Analysis:</span> 
 Run a multiple regression of Anxiety on both **Stress** and Time. What are the estimated coefficients? How do they compare to the true relationship?
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -617,7 +617,7 @@ The R-squared is 1.000 (perfect fit), and all coefficients match the true relati
 ## <span style="color:brown; font-style:italic;">Question 7. Model Comparison:</span> 
 Compare the R-squared values and coefficient interpretations between the two multiple regression models. Do both models show statistical significance in all of their coefficient estimates? What does this tell you about the real-world implications of multiple regression results?
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold; text-align:justify;">Answer:</span>
 
 ```{python}
 #| echo: false
@@ -709,7 +709,7 @@ This demonstrates why we must be skeptical of regression results, especially whe
 ## <span style="color:brown; font-style:italic;">Question 8. Reflect on Real-World Implications:</span> 
 For each of the two multiple regression models, assume their respective outputs/conclusions were published in academic journals and then subsequently picked up by the popular press.  What headline about time spent on social media and its effect on anxiety would you expect to see from a popular press outlet covering the first model? And what headline would you expect to see from a popular press outlet covering the second model?  Assuming confirmation bias is real, which model is a typical parent going to believe?  Which model will Facebook, Instagram, and TikTok executives prefer?
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold; text-align:justify;">Answer:</span>
 
 ### Model 1 (StressSurvey + Time) Headline:
 
@@ -754,7 +754,7 @@ Model 2 would be problematic for them because it confirms public concerns about 
 ## <span style="color:brown; font-style:italic;">Question 9. Avoiding Misleading Statistical Significance:</span> 
 Reflect on this tip to avoid being misled by statistically significant results: splitting the sample into meaningful subsets ("statistical regimes"), and using graphical diagnostics for linearity rather than blind reliance on "canned" regressions. Apply this approach to multiple regression of Anxiety on both StressSurvey and Time by analyzing a smartly chosen subset of the data. What specific subset did you choose and why?  Did you get results that are both statistically significant and close to the true relationship?
 
-<span style="color:brown; font-style:italic;">Answer:</span>
+<span style="color:brown; font-style:italic; font-weight:bold; text-align:justify;">Answer:</span>
 
 The key insight is to identify "statistical regimes" where the relationship might be more linear. Looking at the data, I notice that the non-linearity in the StressSurvey-Stress relationship is most pronounced at the extremes. Let me examine the relationship more carefully and choose a subset where StressSurvey and Stress have a more linear relationship.
 
